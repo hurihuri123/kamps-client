@@ -1,0 +1,36 @@
+.login-with-email-contanier {
+	width: 90%;
+	margin: auto;
+	.login-with-email-text {
+		padding-top: 100px;
+		padding-bottom: 20px;
+		width: 60%;
+        margin: auto;
+      
+		.login-with-email-text-item {
+			font-size: 24px;
+            font-weight: bold;
+            @media only screen and(min-width:400px) {
+                font-size: 26px;
+            }
+		}
+	}
+	.elements-container {
+		@media only screen and(min-width:400px) {
+			width: 23%;
+			margin: auto;
+		}
+		.input-container {
+			.btn-login-with-email {
+				.withEmail-forgotpassword-container {
+					text-align: right;
+					padding-top: 10px;
+					.with-email-forgot-password {
+						text-decoration: underline;
+						font-weight: bold;
+					}
+				}
+			}
+		}
+	}
+}

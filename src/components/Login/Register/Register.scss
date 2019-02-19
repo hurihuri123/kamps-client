@@ -1,0 +1,37 @@
+.register-contanier {
+	width: 90%;
+	margin: auto;
+
+	.register-text {
+		padding-top: 100px;
+		padding-bottom: 15px;
+		width: 60%;
+		margin: auto;
+		.register-text-item {
+			font-size: 24px;
+			font-weight: bold;
+			@media only screen and(min-width:400px) {
+				font-size: 30px;
+			}
+		}
+	}
+	.register-input-container {
+			@media only screen and(min-width:400px) {
+				margin: auto;
+				width: 22%;
+			}
+		
+		.private-policy {
+			padding-top: 10px;
+			text-align: right;
+			.line1-private {
+				text-decoration: underline;
+			}
+			.private-policy-text-container {
+				.line2-private {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}

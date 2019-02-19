@@ -1,0 +1,28 @@
+.login-header {
+    padding-top: 30px;
+    @media only screen and(min-width:400px){
+        padding-top: 45px;
+    }
+	.login-header-log {
+		font-size: 28px;
+        font-weight: bold;
+        @media only screen and(min-width:400px){
+            font-size: 32px;
+        }
+	}
+	.small-text-header {
+		padding-top: 10px;
+		.login-header-small {
+            @media only screen and(min-width:400px){
+                font-size: 16px;
+            }
+		}
+	}
+	.first-time-container {
+        padding-top:10px;
+        padding-bottom: 80px;
+		.login-first {
+            text-decoration: underline;
+		}
+	}
+}

@@ -1,0 +1,10 @@
+.kep-login-facebook {
+    border: 0px solid rgb(121, 121, 121);
+    border-radius: 8px;
+    background: rgb(121, 121, 121);
+    margin-top: 40px;
+    font-size: 16;
+    &.metro {
+        border-radius: 8px;
+    }
+}
