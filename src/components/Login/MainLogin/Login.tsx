@@ -9,7 +9,7 @@ import UserStore from '../../../stores/UserStore';
 
 import LoginHeader from './LoginHeader';
 interface Props {
-	history: any; // UrlParams - From react-router
+	history?: any; // UrlParams - From react-router
 }
 interface IState {
 	isLoading: boolean;
@@ -19,7 +19,7 @@ interface IState {
 const userStore: UserStore = rootStores[USER_STORE];
 
 @observer
-class Login extends React.Component<Props, IState> {
+export  class Login extends React.Component<Props, IState> {
 	private history;
 
 	constructor(props: Props) {
@@ -72,7 +72,7 @@ class Login extends React.Component<Props, IState> {
 				<LoginHeader onFirstTimeCliked={this.onFirstTimeCliked} />
 				<div className="button-group">
 					{/* // TODO: Change to onFinishLogin */}
-					<FBLoginButton FBfinishLogin={this.FBfinishLogin} text={Lang.format('FaceBook')} onError={this.onError} />
+					{/* <FBLoginButton FBfinishLogin={this.FBfinishLogin} text={Lang.format('FaceBook')} onError={this.onError} /> */}
 					<GBLoginButton text={Lang.format('Google')} GooglefinishLogin={this.GooglefinishLogin} onError={this.onError} />
 					<CustomButton onClick={this.onClick} color="gray" large text={Lang.format('LoginWithEmail')} />
 

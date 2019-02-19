@@ -1,14 +1,13 @@
-import * as React from 'react';
-import Lang from '../../../../config/Language';
-import { RoutesPath } from '../../../../consts/urlParams';
 import { CustomButton, CustomInputText, TextTypes } from 'nofshonit-base-web-client';
-import CustomInputNof from '../../../CustomComponents/CustomInputTextNof/CustomInputNof';
-import AuthStore from '../../../../stores/AuthStore';
-import { USER_STORE, AUTH_STORE } from '../../../../consts/stores';
-import rootStores from '../../../../stores';
+import * as React from 'react';
+import Lang from '../../../config/Language';
+import { AUTH_STORE } from '../../../consts/stores';
+import { RoutesPath } from '../../../consts/urlParams';
+import rootStores from '../../../stores';
+import AuthStore from '../../../stores/AuthStore';
 
 interface Props {
-	history: any;
+	history?: any;
 }
 interface IState {
 	email: string;

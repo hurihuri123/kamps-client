@@ -1,11 +1,11 @@
 import { CustomButton, CustomInputText, TextTypes } from 'nofshonit-base-web-client';
 import * as React from 'react';
-import { RoutesPath } from '../../../consts/urlParams';
+import Lang from '../../../config/Language';
 import { AUTH_STORE, USER_STORE } from '../../../consts/stores';
+import { RoutesPath } from '../../../consts/urlParams';
 import rootStores from '../../../stores';
 import AuthStore from '../../../stores/AuthStore';
 import UserStore from '../../../stores/UserStore';
-import  Lang  from '../../../config/Language';
 interface Props {
 	history: any;
 }

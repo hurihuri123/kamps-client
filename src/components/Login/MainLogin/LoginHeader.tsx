@@ -1,11 +1,11 @@
 import * as React from 'react';
-import Lang from '../../../../config/Language';
+import Lang from '../../../config/Language';
 
 interface Props {
 	onFirstTimeCliked: () => void;
 }
 
-class LoginHeader extends React.Component<Props> {
+export default class LoginHeader extends React.Component<Props> {
 	constructor(props: Props) {
 		super(props);
 	}
@@ -30,5 +30,3 @@ class LoginHeader extends React.Component<Props> {
 		);
 	}
 }
-
-export default LoginHeader;

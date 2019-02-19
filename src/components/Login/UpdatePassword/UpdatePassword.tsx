@@ -1,9 +1,9 @@
-import * as React from 'react';
-import Lang from '../../../../config/Language';
-import AuthStore from '../../../../stores/AuthStore';
-import { AUTH_STORE } from '../../../../consts/stores';
-import rootStores from '../../../../stores';
 import { CustomButton, CustomInputText, TextTypes } from 'nofshonit-base-web-client';
+import * as React from 'react';
+import Lang from '../../../config/Language';
+import { AUTH_STORE } from '../../../consts/stores';
+import rootStores from '../../../stores';
+import AuthStore from '../../../stores/AuthStore';
 
 interface Props {
 	email: string;
@@ -15,7 +15,7 @@ interface IState {
 }
 const authStore: AuthStore = rootStores[AUTH_STORE];
 
-class UpdatePassword extends React.Component<Props, IState> {
+export default class UpdatePassword extends React.Component<Props, IState> {
 	constructor(props: Props) {
 		super(props);
 		this.state = {
@@ -78,5 +78,3 @@ class UpdatePassword extends React.Component<Props, IState> {
 		);
 	}
 }
-
-export default UpdatePassword;

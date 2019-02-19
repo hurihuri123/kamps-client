@@ -1,0 +1,48 @@
+.by-custom-input-text-container,
+.custom-selector-container {
+  min-height: 50px;
+  margin-bottom: #{$by-small-margin-bottom};
+  &.short {
+       margin-bottom: 0;
+       min-height: 60px;
+  }
+  /* label container & label */
+  .custom-input-label-container {
+    font-weight: bold;
+    text-align: right;
+    color: #{$by-label-color};
+    margin-bottom: #{$small-margin-bottom};
+   // @include inputs-label-in-registration();
+  }
+  /* custom input text & date */
+  .custom-input-text-input-container {
+    border: 1px solid #{$by-input-border-color};
+    background: #{$input-background-color};
+    line-height: 27.5px;
+    padding: 0px 2px;
+    
+    &.nofshonit{
+      border-radius: 4px;
+      height: 35px;
+    }
+    &.error {
+      border-color: #{$color-red-nofshonit};
+      border-width: 2px;
+    }
+    &.disabled {
+      background: #{$registration-input-disabled};
+      input[disabled] {
+        background-color: rgba(0, 0, 0, 0);
+      }
+   
+    }
+    input {
+      width: 100%;
+      border: 0;
+      background: #{$input-background-color};
+      font-size: #{$registration-input-label-mobile-font-size};
+      font-weight: bold;
+      color: #{$by-input-text-color};
+    }
+  }
+}

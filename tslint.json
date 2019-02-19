@@ -4,7 +4,7 @@
     "tslint-react"
   ],
   "rules": {
-    "no-unused-variable": true,
+    "no-unused-variable": false,
     "jsx-no-multiline-js": false,
     "jsx-no-lambda": false,
     "arrow-parens": false,
@@ -18,11 +18,8 @@
     "jsx-align": false,
     "no-unused-expression": false,
     "jsx-equals-spacing": false,
-    "jsx-boolean-value": false,
-    "trailing-comma": false,
-    "import-spacing": true,
-    "ordered-imports": true,
-    "space-before-function-paren": false,
-    "no-trailing-whitespace": true
+    "jsx-boolean-value": false
   }
 }
+
+

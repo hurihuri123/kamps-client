@@ -1,17 +1,17 @@
 export enum LogLevel {
-    Debug = 'DEBUG',
-    Info = 'INFO',
-    Warn = 'WARN',
-    Error = 'ERROR'
+	Debug = 'DEBUG',
+	Info = 'INFO',
+	Warn = 'WARN',
+	Error = 'ERROR'
 }
 
 export enum UserType {
-    Admin = 'Admin',
-    Worker = 'Worker'
+	Admin = 'Admin',
+	Worker = 'Worker'
 }
 
-//enum for the menu navigation 
+//enum for the menu navigation
 export enum MenuButtonType {
-    navBarButton = 'navBarButton',
-    sideBarButton = 'sideBarButton'
+	navBarButton = 'navBarButton',
+	sideBarButton = 'sideBarButton'
 }

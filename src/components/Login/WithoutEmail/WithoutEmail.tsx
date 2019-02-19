@@ -1,9 +1,8 @@
-import { CustomButton,CustomInputText,TextTypes } from 'nofshonit-base-web-client';
+import { CustomButton, CustomInputText, TextTypes } from 'nofshonit-base-web-client';
 import * as React from 'react';
 import Lang from '../../../config/Language';
 
-
-class WithoutEmail extends React.Component {
+export default class WithoutEmail extends React.Component {
 	onClick = () => {
 		console.log('WithoutEmail Clicked'); //need to send the data to the server and compare
 	};
@@ -21,8 +20,8 @@ class WithoutEmail extends React.Component {
 					<div className="forgot-form">
 						<div className="without-email-input">
 							<CustomInputText
-								type="text"
-								onChange={this.handleInput}
+								type={TextTypes.Text}
+								onChange={this.handleInput} 
 								placeholder={Lang.format('EmailAddress')}
 							/>
 						</div>
@@ -39,4 +38,4 @@ class WithoutEmail extends React.Component {
 	}
 }
 
-export default WithoutEmail;
+

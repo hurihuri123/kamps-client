@@ -10,21 +10,19 @@ import { RoutesPath } from '../../consts/urlParams';
 
 
 
-class LoginContainer extends React.Component {
+export default class LoginContainer extends React.Component {
   render() {
     return (
 
-      <>
+      <React.Fragment>
         <Route path={`/${RoutesPath.login}/${RoutesPath.withOutEmail}`} exact={false} component={WithoutEmail} />
         <Route path={`/${RoutesPath.login}/${RoutesPath.updatePassword}`} exact={false} component={UpdatePassword} />
         <Route path={`/${RoutesPath.login}/${RoutesPath.register}`} exact={false} component={Register} />
         <Route path={`/${RoutesPath.login}/${RoutesPath.forgotPassword}`} exact={false} component={ForgotPassword} />
         <Route path={`/${RoutesPath.login}/${RoutesPath.loginWithEmail}`} exact={false} component={LoginWithEmail} />
         <Route path={`/${RoutesPath.login}`} exact={true} component={Login} />
-      </>
+      </React.Fragment>
 
     )
   }
 }
-
-export default LoginContainer

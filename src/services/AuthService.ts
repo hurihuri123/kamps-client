@@ -1,16 +1,167 @@
+import { Logger } from 'nofshonit-base-web-client';
 import ClientConfig from '../config/index';
 import User from '../models/User';
 import BaseHTTPService from './BaseHTTPService';
 
 export interface LoginWithMailReponse {
-    error?: boolean;
-    errMsg?: string;
-    user?: User;
+	error?: boolean;
+	errMsg?: string;
+	user?: User;
 }
 
 class AuthService extends BaseHTTPService {
+	async getCurrentUser() {
+		try {
+			const response = await this.httpGet('/getCurrentUser');
+			if (response && response.status) {
+				const user = response.data.data;
+				return user;
+			}
 
+			throw new Error('Error in response from getCurrentUser');
+		} catch (err) {
+			Logger.error(`error in getCurrentUser`, err);
+			throw err;
+		}
+	}
+
+	logout() {
+		return this.httpGet('/logout').then((response) => {
+			// Redirect to HomePage...
+		});
+	}
+
+	// async loginWithMailAndPassword(email: string, password: string): Promise<LoginWithMailReponse> {
+	//     let loginWithMailReponse: LoginWithMailReponse;
+	//     try {
+	//         const response = await this.httpPost('/loginWithMailAndPassword', {mail: email, password: password});
+	//         if (response && response.status) {
+	//             loginWithMailReponse = {
+	//                 user: response.data
+	//             };
+	//             return loginWithMailReponse;
+	//         }
+
+	//         throw new Error('Error in response from loginWithMail');
+	//     } catch (err) {
+	//         // "Simulate" call to "then"
+	//         // loginWithMailReponse = {
+	//         //     error: true,
+	//         //     errMsg: Lang.format('THIS_FREE_MAIL_ADDRESS_IS_NOT_VALID')
+	//         // };
+	//         // Logger.error(`error in loginWithMail ${JSON.stringify(loginWithMailReponse)}`);
+	//         // return loginWithMailReponse;
+	//     }
+	// }
+
+	login(email, pass): Promise<User> {
+		return new Promise((resolve, reject) => {
+			setTimeout(() => {
+				if (email && pass) {
+					resolve(new User());
+				} else reject();
+			});
+		});
+	}
+
+	loginWithGoogle(email, token): Promise<User> {
+		return new Promise((resolve, reject) => {
+			setTimeout(() => {
+				if (email && token) resolve(new User());
+				else reject();
+			}, 1000);
+		});
+	}
+
+	loginWithFb(email, token): Promise<User> {
+		return new Promise((resolve, reject) => {
+			setTimeout(() => {
+				if (token) {
+					resolve(new User());
+				} else reject();
+			}, 1000);
+		});
+	}
+
+	updateUserPassword(password): Promise<boolean> {
+		return new Promise((resolve, reject) => {
+			setTimeout(() => {
+				if (password) resolve(true);
+				else reject(false);
+			}, 1000);
+		});
+	}
+
+	// register(user:User):Promise<User>{
+
+	//     return new Promise((resolve,reject)=>{
+	//         setTimeout(()=>{
+	//             if(user)
+	//             resolve(new User());
+	//             else reject();
+
+	//         },1000)
+	//     })
+	// }
+
+	sendForgotPassword(email: string): Promise<boolean> {
+		return new Promise((resolve, reject) => {
+			setTimeout(() => {
+				if (email) resolve(true);
+				else reject;
+			}, 1000);
+		});
+	}
+
+	changePassword(newPassword: string): Promise<boolean> {
+		return new Promise((resolve, reject) => {
+			setTimeout(() => {
+				if (newPassword) {
+					resolve(true); //we need to do a HTTP PUT request to change the password to the user.
+				}
+			}, 1000);
+		});
+	}
+
+	// Todo integration:: add return value.
+	checkUser(email: string, password: string, loginType: number) {
+		const user = {
+			email,
+			password,
+			loginType
+		};
+		return this.httpPost('/users/authenticate', user)
+			.then((res) => {
+				console.log(res);
+				return new User();
+			})
+			.catch((err) => {
+				console.log('error:::', err);
+			});
+		// return new Promise((resolve, reject) => {
+		//     setTimeout(() => {
+		//         if (email && password) {
+
+		//             resolve(new User())
+		//         }
+		//     }, 1000)
+		// })
+	}
+
+	register(email: string, password: string): Promise<User> {
+		return new Promise((resolve, reject) => {
+			setTimeout(() => {
+				if (email && password) {
+					resolve(new User());
+				} else {
+					reject();
+				}
+			}, 1000);
+		});
+	}
+	async loginWithUserIDAndEmail(email: string, userID: string) {
+		// const response = await this.httpGet()
+	}
 }
-
 
 export default new AuthService(ClientConfig.authBaseApi);
