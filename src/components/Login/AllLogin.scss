@@ -6,7 +6,7 @@
 @import './Register/Register';
 @import './UpdatePassword/UpdatePassword';
 @import './WithoutEmail/WithoutEmail';
-@import './GBLogin';
-@import './FBLogin';
+@import '../LoginApis/FaceBookLogin/FBLogin';
+@import '../LoginApis/GoogleLogin/GBLogin';
 @import './ByCustomButton';
 @import './ByCustomInputText';
