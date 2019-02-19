@@ -1,0 +1,126 @@
+@import "variables";
+@import "fonts";
+@import "functions";
+@import "components";
+@import "common";
+@import "colors";
+
+/// This is css RESET
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow: hidden;
+}
+
+p,ul,h1,h2,h3,h4 {
+  padding: 0;
+  margin: 0;
+}
+
+body,span,p,h1,h2,h3,h4,section,a {
+  font-family:Lato, OpenSansHebrew, Arial, Helvetica, sans-serif;
+  font-size: $font-size-base;
+  color: $color-text-main;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+ul, ol {
+  //list-style: none;
+}
+
+div, section, p, li {
+  //box-sizing: border-box;
+  outline:none;
+}
+
+
+textarea:focus, input:focus{
+  outline: none;
+}
+
+textarea, input {
+  font-family:Lato, OpenSansHebrew, Arial, Helvetica, sans-serif;
+  font-size: $font-size-base;
+  color: $color-text-main;
+  outline: none;
+}
+
+button{
+  font-family:Lato, OpenSansHebrew, Arial, Helvetica, sans-serif;
+  letter-spacing: 0.5px;
+  outline: none;
+}
+
+// BUTTONS
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: $color-button-secondary;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: $color-button-secondary;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: $color-button-secondary;
+}

@@ -1,0 +1,30 @@
+{
+	"categories": [
+		{
+			"name": "חמי געש - אוצר טבע במרחק נגיעה",
+			"varients": [
+				{
+					"varientName": "כניסה לימי א'-ה' 1+1",
+					"price": 50,
+					"quantity": 1
+				},
+				{
+					"varientName": "כניסה שישי שבת וחוה\"מ 1+1",
+					"price": 100,
+					"quantity": 2
+				}
+            ]
+        },
+        {
+            "name":"סינמה סיטי VIP",
+			"varients":[
+                {
+                    "varientName":"כניסה שישי שבת וחוה\"מ 1+1",
+                    "price":50,
+                    "quantity":1
+                }
+            ]
+        }
+
+	]
+}
