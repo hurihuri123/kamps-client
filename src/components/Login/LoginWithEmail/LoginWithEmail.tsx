@@ -33,7 +33,8 @@ class LoginWithEmail extends React.Component<Props, IState> {
 
 	onLoginWithEmailClicked = () => {
 		console.log('button clicked!'); //need to check if the user exsist.
-		if (this.state.email && this.state.password) authStore.checkUser(this.state.email, this.state.password, 0);
+		if (this.state.email && this.state.password)
+		 authStore.loginWithEmailAndPass(this.state.email, this.state.password, 0);
 		else {
 			console.log('you need to enter a input!!!'); //need to know what is the message.
 		}
@@ -61,14 +62,12 @@ class LoginWithEmail extends React.Component<Props, IState> {
 					<div className="input-container">
 						<CustomInputText
 							type={TextTypes.Email}
-							nofshonit
 							value={email}
 							onChange={this.handleEmailInput}
 							placeholder={Lang.format('EmailAddress')}
 						/>
 						<CustomInputText
 							type={TextTypes.Password}
-							nofshonit
 							value={password}
 							onChange={this.handlePasswordInput}
 							placeholder={Lang.format('Password')}

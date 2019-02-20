@@ -3,11 +3,12 @@ import GoogleLogin  from 'react-google-login';
 import axios from 'axios';
 import {CustomButton} from 'nofshonit-base-web-client'
 import Lang from '../../../config/Language';
+import { LoginType } from '../../../models/enums';
 
 
 interface Props {
     // TODO: Use email:string, token:string
-    GooglefinishLogin: (email:string, token:string) => void,
+    GooglefinishLogin: (email:string, token:string,loginType:LoginType,accessToken:string) => void,
     onError: () => void
 }
 
@@ -45,21 +46,15 @@ export default class GoogleLog extends React.Component<Props , IState> {
             token: response.tokenId
         }
 
-        axios.post(`http://localhost:3000/users`, user)
-            .then(res => this.setState({isLoggedIn:user.isLoogedIn,userID:user.userID,name:user.name,email:user.email,token:user.token}))
-            .catch(err => console.log(err))
-
-        this.checkUser(user.email, user.token);
-
+        if(user.email&&user.token){
+            this.props.GooglefinishLogin(user.email,user.userID,LoginType.Google,user.token);
+        }
+      
+        
     }
-
-    onClick =()=>console.log('google buttun clicked')
-
-    checkUser = (email:string,token:string)=>{
-        if(token) this.props.GooglefinishLogin(email,token);
-        else this.props.onError();
-    }
-
+ onClick =()=>{
+     console.log('user clicked on the btn');
+ }
     render() {
         // TODO: Use render function instead of variable
         let gmailContent;
@@ -97,11 +92,3 @@ export default class GoogleLog extends React.Component<Props , IState> {
         )
     }
 }
-
-{/* <GoogleLog
-            className ="google-button"
-                clientId="925224063993-lj2is3nhb8rb251amdh8ppc5titjc5bi.apps.googleusercontent.com"
-                buttonText="Login"
-                onSuccess={this.responseGoogle}
-                onFailure={this.responseGoogle}
-            /> */}

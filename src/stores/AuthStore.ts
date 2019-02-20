@@ -57,10 +57,15 @@ export default class AuthStore {
 	}
 
 	@action
-	checkUser(email, password, loginType) {
-		return AuthService.checkUser(email, password, loginType);
+	loginWithEmailAndPass(email, password, loginType) {
+		return AuthService.loginWithEmailAndPass(email, password, loginType);
 	}
 
+	@action
+	loginWithApi(email,userID,loginType,accessToken){
+		
+		return AuthService.loginWithApi(email,userID,loginType,accessToken);
+	}
 	@action
 	register(email: string, password: string) {
 		return AuthService.register(email, password);

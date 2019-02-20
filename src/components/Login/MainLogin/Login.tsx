@@ -2,14 +2,15 @@ import { observer } from 'mobx-react';
 import { CustomButton } from 'nofshonit-base-web-client';
 import * as React from 'react';
 import Lang from '../../../config/Language';
-import { USER_STORE } from '../../../consts/stores';
+import { USER_STORE,AUTH_STORE } from '../../../consts/stores';
 import { RoutesPath } from '../../../consts/urlParams';
 import rootStores from '../../../stores';
 import UserStore from '../../../stores/UserStore';
 import FBLogin from '../../LoginApis/FaceBookLogin/FBLogin';
 import GBLogin from '../../LoginApis/GoogleLogin/GBLogin';
-
+import {LoginType} from  '../../../models/enums'
 import LoginHeader from './LoginHeader';
+import AuthStore from '../../../stores/AuthStore';
 interface Props {
 	history?: any; // UrlParams - From react-router
 }
@@ -19,6 +20,7 @@ interface IState {
 }
 
 const userStore: UserStore = rootStores[USER_STORE];
+const authStore: AuthStore = rootStores[AUTH_STORE];
 
 @observer
 export  class Login extends React.Component<Props, IState> {
@@ -49,27 +51,28 @@ export  class Login extends React.Component<Props, IState> {
 		this.history.replace(`${RoutesPath.forgotPassword}`);
 	};
 
-	GooglefinishLogin = (email: string, token: string) => {
-		this.onLoginWithApis(email, token);
+	GooglefinishLogin = (email: string, token: string,loginType:LoginType,accessToken:string) => {
+
+		this.onLoginWithApis(email, token,loginType,accessToken);
 	};
 
-	FBfinishLogin = (email: string, token: string) => {
-		this.onLoginWithApis(email, token);
+	FBfinishLogin = (email: string, token: string,loginType:LoginType,accessToken:string) => {
+		this.onLoginWithApis(email, token,loginType,accessToken);
 	};
 
-	onLoginWithApis = (email: string, userID: string) => {
+	onLoginWithApis = (email: string, userID: string,loginType:LoginType,accessToken:string) => {
 		if (email) {
-			userStore.setUserMail(email);
-			//  userStore.loginWithTokenAndEMail(email, userID);
-			userStore.loginWithUserIDAndEmail(email, userID);
-			this.history.replace(`${RoutesPath.home}`);
+			authStore.loginWithApi(email,userID,loginType,accessToken);
 		} else {
-			this.history.replace(`${RoutesPath.withOutEmail}`);
+			// this.gal.show()
 		}
 	};
 
+	gal:any;
 	render() {
 		return (
+			<>
+			{/* <FacebookBlaBLaDialog ref={this.gal}/> */}
 			<div className="main-login-container">
 				<LoginHeader onFirstTimeCliked={this.onFirstTimeCliked} />
 				<div className="button-group">
@@ -86,6 +89,7 @@ export  class Login extends React.Component<Props, IState> {
 					</div>
 				</div>
 			</div>
+			</>
 		);
 	}
 }

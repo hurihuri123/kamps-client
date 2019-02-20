@@ -53,7 +53,6 @@ class ForgotPassword extends React.Component<Props, IState> {
 							<CustomInputText
 								type={TextTypes.Email}
 								value={email}
-								nofshonit
 								onChange={this.handleInput}
 								placeholder={Lang.format('EmailAddress')}
 							/>

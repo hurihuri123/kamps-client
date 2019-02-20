@@ -61,14 +61,12 @@ export default class UpdatePassword extends React.Component<Props, IState> {
 							type={TextTypes.Password}
 							onChange={this.handlepasswordInput}
 							value={password}
-							nofshonit
 							placeholder={Lang.format('Password')}
 						/>
 						<CustomInputText
 							type={TextTypes.Password}
 							onChange={this.handleconfirmedPasswordInput}
 							value={confirmedPassword}
-							nofshonit
 							placeholder={Lang.format('ConfirnmedPassword')}
 						/>
 						<CustomButton onClick={this.onClick} color="black" large text={Lang.format('ChangePassword')} />

@@ -3,8 +3,9 @@ import { CustomButton } from 'nofshonit-base-web-client';
 import * as React from 'react';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import Lang from '../../../config/Language';
+import { LoginType } from '../../../models/enums';
 interface Props {
-    FBfinishLogin: (email: string, userID: string) => void,
+    FBfinishLogin: (email: string, userID: string,loginType:LoginType,accessToken:string) => void,
     onError: () => void
 }
 interface IState {
@@ -41,20 +42,9 @@ export class FBLogin extends React.Component<Props, IState> {
             email: response.email,
             token: response.accessToken
         }
-        console.log(user);
-        // TODO: Change this to use ****Service (class)
-        axios.post(`http://localhost:3000/users`, user)
-            .then(res => this.setState(user))
-            .catch(err => console.log(err))
-        this.checkUser(user.email, user.userID);
-    }
 
-    checkUser = (email: string, userID: string) => {
-        if (userID) {
-            this.props.FBfinishLogin(email, userID);
-        } else {
-            this.props.onError();
-        }
+        console.log(user);
+     this.props.FBfinishLogin(user.email,user.userID,LoginType.Facebook,user.token);
     }
 
     componentClicked = () => console.log("facebook clicked");
@@ -78,7 +68,7 @@ export class FBLogin extends React.Component<Props, IState> {
                     Email: {this.state.email}
                 </div>
             );
-            // we couldnt able to connect 
+          
         } else {
             // TODO: Change this to renderFunction and not just variable
             fbContent = (<FacebookLogin
@@ -103,10 +93,3 @@ export class FBLogin extends React.Component<Props, IState> {
 }
 
 export default FBLogin;
-// {/* <FacebookLog
-//                 appId="2180334285362272"
-//                 autoLoad={false}
-//                 fields="name,email"
-//                 onClick={this.componentClicked}
-//                 callback={this.responseFacebook}
-//                /> */}

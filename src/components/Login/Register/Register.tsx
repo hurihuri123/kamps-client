@@ -57,21 +57,18 @@ export default class Register extends React.Component<Props, IState> {
 				<div className="register-input-container">
 					<CustomInputText
 						type={TextTypes.Email}
-						nofshonit
 						onChange={this.EmailhandleInput}
 						value={email}
 						placeholder={Lang.format('EmailAddress')}
 					/>
 					<CustomInputText
 						type={TextTypes.Password}
-						nofshonit
 						onChange={this.PasswordhandleInput}
 						value={password}
 						placeholder={Lang.format('Password')}
 					/>
 					<CustomInputText
 						type={TextTypes.Password}
-						nofshonit
 						onChange={this.ConfiermedPasswordhandleInput}
 						value={confirmPassword}
 						placeholder={Lang.format('ConfirnmedPassword')}

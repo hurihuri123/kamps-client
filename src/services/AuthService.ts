@@ -2,6 +2,7 @@ import { Logger } from 'nofshonit-base-web-client';
 import ClientConfig from '../config/index';
 import User from '../models/User';
 import BaseHTTPService from './BaseHTTPService';
+import { LoginType } from '../models/enums';
 
 export interface LoginWithMailReponse {
 	error?: boolean;
@@ -124,13 +125,13 @@ class AuthService extends BaseHTTPService {
 	}
 
 	// Todo integration:: add return value.
-	checkUser(email: string, password: string, loginType: number) {
-		const user = {
+	loginWithEmailAndPass(email: string, password: string, loginType: number) {
+		const request = {
 			email,
 			password,
 			loginType
 		};
-		return this.httpPost('/users/authenticate', user)
+		return this.httpPost('/users/authenticate', request)
 			.then((res) => {
 				console.log(res);
 				return new User();
@@ -138,14 +139,30 @@ class AuthService extends BaseHTTPService {
 			.catch((err) => {
 				console.log('error:::', err);
 			});
-		// return new Promise((resolve, reject) => {
-		//     setTimeout(() => {
-		//         if (email && password) {
+	}
 
-		//             resolve(new User())
-		//         }
-		//     }, 1000)
-		// })
+	loginWithApi(email:string,userID:string,loginType:LoginType,accessToken:string){
+
+		const request = {
+			AccessID:userID,
+			LoginType :loginType,
+			email:email,
+			AccessToken:accessToken
+		}
+
+		return this.httpPost('/users/authenticate',request)
+		.then(res=>{
+			if(res&& res.status){
+				return new User(res.data);
+			}else{
+				console.log(res.errorDescription);
+				return new Error('need to send the error desc and show it to the user');
+			}
+
+		})
+		.catch(err=>{
+			console.log(err);
+		})
 	}
 
 	register(email: string, password: string): Promise<User> {
