@@ -1,10 +1,10 @@
-import { Provider } from 'mobx-react';
+import {Provider} from 'mobx-react';
 import * as React from 'react';
-import { Switch, Route } from 'react-router';
-import { BrowserRouter } from 'react-router-dom';
+import {Switch} from 'react-router';
+import {BrowserRouter} from 'react-router-dom';
 import rootStores from '../../stores';
+import TomTestPage from '../TomTestPage/TomTestPage';
 
-import LoginContainer from '../Login/LoginContainer';
 interface IProps {}
 
 interface IState {}
@@ -21,7 +21,7 @@ export default class App extends React.Component<IProps, IState> {
 			<Provider {...rootStores}>
 				<BrowserRouter>
 					<Switch>
-						<LoginContainer />
+						<TomTestPage />
 					</Switch>
 				</BrowserRouter>
 			</Provider>

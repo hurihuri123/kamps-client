@@ -1,4 +1,4 @@
-import { CustomButton, CustomInputText, TextTypes } from 'nofshonit-base-web-client';
+import {CustomButton} from 'nofshonit-base-web-client';
 import * as React from 'react';
 import Lang from '../../../config/Language';
 
@@ -19,11 +19,11 @@ export default class WithoutEmail extends React.Component {
 					<p className="forgot-text-small">{Lang.format('Enter_Your_Email_Address')}</p>
 					<div className="forgot-form">
 						<div className="without-email-input">
-							<CustomInputText
+							{/* <CustomInputText
 								type={TextTypes.Text}
 								onChange={this.handleInput} 
 								placeholder={Lang.format('EmailAddress')}
-							/>
+							/> */}
 						</div>
 						<CustomButton
 							onClick={this.onClick}

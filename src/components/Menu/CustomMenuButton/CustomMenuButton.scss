@@ -1,0 +1,27 @@
+.custom-menu
+{
+    text-align: center;
+    box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(121, 121, 121, 1);
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: 'ArialMT', 'Arial';
+    background-color: white;
+
+    &.nav-bar-button{
+        margin-left: 15px;
+        height: 45px;
+    }
+    &.side-bar-button{
+        margin-bottom: 10px;
+        width: 206px;
+        height: 41px;
+        line-height: 32px;
+    }
+    &.black{
+     background-color: rgba(54, 54, 54, 1);
+     color :white;
+    }
+}
