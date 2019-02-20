@@ -1,4 +1,4 @@
-.bycustom-button-container {
+.custom-button-container {
 	width: 100%;
 	display: flex;
 	justify-content: center;
@@ -8,7 +8,7 @@
 	&.smallHeight{
 		padding-top: 10px;
 	}
-	.bybutton {
+	.button {
 		border: 0px solid rgb(121, 121, 121);
 		border-radius: 2px;
 		height: 40px;

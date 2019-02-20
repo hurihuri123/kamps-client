@@ -20,11 +20,9 @@
     background: #{$input-background-color};
     line-height: 27.5px;
     padding: 0px 2px;
-    
-    &.nofshonit{
       border-radius: 4px;
       height: 35px;
-    }
+    
     &.error {
       border-color: #{$color-red-nofshonit};
       border-width: 2px;
