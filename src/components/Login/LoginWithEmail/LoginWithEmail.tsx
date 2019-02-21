@@ -5,6 +5,8 @@ import { AUTH_STORE } from '../../../consts/stores';
 import { RoutesPath } from '../../../consts/urlParams';
 import rootStores from '../../../stores';
 import AuthStore from '../../../stores/AuthStore';
+import { isNullOrUndefined } from 'util';
+import { LoginType } from '../../../models/enums';
 
 interface Props {
 	history?: any;
@@ -12,6 +14,8 @@ interface Props {
 interface IState {
 	email: string;
 	password: string;
+	emailError?:string;
+	passwordError?:string;
 }
 const authStore: AuthStore = rootStores[AUTH_STORE];
 
@@ -32,27 +36,45 @@ class LoginWithEmail extends React.Component<Props, IState> {
 	};
 
 	onLoginWithEmailClicked = () => {
-		console.log('button clicked!'); //need to check if the user exsist.
-		if (this.state.email && this.state.password)
-		 authStore.loginWithEmailAndPass(this.state.email, this.state.password, 0);
+	 //need to check if the user exsist.
+		if (this.validate())
+		 authStore.loginWithEmailAndPass(this.state.email, this.state.password, LoginType.EmailAndPass);
 		else {
 			console.log('you need to enter a input!!!'); //need to know what is the message.
 		}
 	};
 
 	handleEmailInput = (value) => {
+		this.clearError();
 		const email = value;
 		this.setState({ email: email });
 	};
 
 	handlePasswordInput = (value) => {
+		this.clearError();
 		const password = value;
 		this.setState({ password: password });
 	};
+	validate = ()=>{
+		if(this.state.email.length===0){
+			this.setState({emailError:Lang.format('EmailError')})
+			return false;
+		}
+						if(this.state.password.length===0){
+							this.setState({passwordError:Lang.format('PasswordError')})
+							return false;
+						}
+
+		return true;
+	}
+
+	clearError = ()=>{
+		this.setState({emailError:undefined});
+		this.setState({passwordError:undefined})
+	}
 
 	render() {
-		const email = this.state.email;
-		const password = this.state.password;
+	const {email,password,emailError,passwordError} =this.state;
 		return (
 			<div className="login-with-email-contanier">
 				<div className="login-with-email-text">
@@ -63,12 +85,14 @@ class LoginWithEmail extends React.Component<Props, IState> {
 						<CustomInputText
 							type={TextTypes.Email}
 							value={email}
+							error={emailError}
 							onChange={this.handleEmailInput}
 							placeholder={Lang.format('EmailAddress')}
 						/>
 						<CustomInputText
 							type={TextTypes.Password}
 							value={password}
+							error={passwordError}
 							onChange={this.handlePasswordInput}
 							placeholder={Lang.format('Password')}
 						/>

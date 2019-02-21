@@ -111,7 +111,10 @@
         "Continue":"המשך",
         "EnterYourDetail":"או שמלא את הפרטים הבאים",
         "FirstName":"שם פרטי",
-        "Total":"סה\"כ"
+        "Total":"סה\"כ",
+        "EmailError":"כתובת המייל אינה תקינה",
+        "PasswordError":"הסימסה אינה תקינה",
+        "PasswordsNotMatch":"סיסמאות אינן זהות"
         
     
 }

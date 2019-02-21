@@ -9,6 +9,9 @@ interface IState {
 	email: string;
 	password: string;
 	confirmPassword: string;
+	emailError?:string;
+	passwordError?:string;
+	confirmError?:string
 }
 interface Props {}
 
@@ -24,20 +27,25 @@ export default class Register extends React.Component<Props, IState> {
 	}
 
 	registerClicked = () => {
-		if (this.state.password === this.state.confirmPassword) {
+		if (this.validate()) {
 			authStore.register(this.state.email, this.state.password);
+		}else{
+			console.log('not valide');
 		}
 	};
 
 	EmailhandleInput = (value) => {
+		this.clearError();
 		const email = value;
 		this.setState({ email: email });
 	};
 	PasswordhandleInput = (value) => {
+		this.clearError();
 		const password = value;
 		this.setState({ password: password });
 	};
 	ConfiermedPasswordhandleInput = (value) => {
+		this.clearError();
 		const confirmPassword = value;
 		this.setState({ confirmPassword: confirmPassword });
 	};
@@ -45,10 +53,36 @@ export default class Register extends React.Component<Props, IState> {
 	moveToPrivatePolicy = () => {
 		console.log('need chang page to privatePolicy');
 	};
+
+	validate=()=>{
+
+		if(this.state.email.length===0){
+			this.setState({emailError:Lang.format('EmailError')});
+			return false;
+		}
+	
+		if(this.state.password.length===0){
+			this.setState({passwordError:Lang.format('PasswordError')});
+			return false;
+		}
+		if(this.state.confirmPassword.length===0){
+			this.setState({confirmError:Lang.format('PasswordError')});
+			return false;
+		}
+		if(this.state.password!==this.state.confirmPassword){
+			this.setState({confirmError:Lang.format('PasswordsNotMatch')})
+			return false;
+		}
+		return true;
+	}
+
+	clearError = ()=>{
+		this.setState({emailError:undefined});
+		this.setState({confirmError:undefined});
+		this.setState({passwordError:undefined});
+	}
 	render() {
-		const email = this.state.email;
-		const password = this.state.password;
-		const confirmPassword = this.state.confirmPassword;
+		const {email,passwordError,confirmError,confirmPassword,emailError,password} = this.state; 
 		return (
 			<div className="register-contanier">
 				<div className="register-text">
@@ -59,17 +93,20 @@ export default class Register extends React.Component<Props, IState> {
 						type={TextTypes.Email}
 						onChange={this.EmailhandleInput}
 						value={email}
+						error={emailError}
 						placeholder={Lang.format('EmailAddress')}
 					/>
 					<CustomInputText
 						type={TextTypes.Password}
 						onChange={this.PasswordhandleInput}
+						error={passwordError}
 						value={password}
 						placeholder={Lang.format('Password')}
 					/>
 					<CustomInputText
 						type={TextTypes.Password}
 						onChange={this.ConfiermedPasswordhandleInput}
+						error={confirmError}
 						value={confirmPassword}
 						placeholder={Lang.format('ConfirnmedPassword')}
 					/>

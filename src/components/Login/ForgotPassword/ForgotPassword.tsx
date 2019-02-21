@@ -6,11 +6,13 @@ import { RoutesPath } from '../../../consts/urlParams';
 import rootStores from '../../../stores';
 import AuthStore from '../../../stores/AuthStore';
 import UserStore from '../../../stores/UserStore';
+import { isNullOrUndefined } from 'util';
 interface Props {
 	history: any;
 }
 interface IState {
 	email: string;
+	emailError?: string;
 }
 
 const userStore: UserStore = rootStores[USER_STORE];
@@ -22,23 +24,43 @@ class ForgotPassword extends React.Component<Props, IState> {
 		super(props);
 		this.history = this.props.history;
 		this.state = {
-			email: ''
+			email: '',
+			
 		};
 	}
 
 	handleInput = (value) => {
+		this.clearError();
 		const email = value;
 		this.setState({ email: email });
 	};
 
 	onClick = () => {
-		authStore.sendForgotPassword(this.state.email);
-		userStore.currentUser.email = this.state.email;
-		this.history.replace(`${RoutesPath.updatePassword}`);
+		if (this.validate()) {
+		
+			authStore.sendForgotPassword(this.state.email);
+			userStore.currentUser.email = this.state.email;
+			this.history.replace(`${RoutesPath.updatePassword}`);
+		
+		}else{
+			
+		console.log('validate error!!!')
+		}
 	};
 
+	validate = () => {
+		if (this.state.email.length === 0) {
+			this.setState({ emailError: Lang.format('EmailError') });
+			return false;
+		}
+		return true;
+	};
+
+	clearError = ()=>{
+		this.setState({emailError:undefined});
+	}
 	render() {
-		const email = this.state.email;
+		const { email, emailError } = this.state;
 		return (
 			<div>
 				<div className="forgot-contanier">
@@ -53,6 +75,7 @@ class ForgotPassword extends React.Component<Props, IState> {
 							<CustomInputText
 								type={TextTypes.Email}
 								value={email}
+								error={emailError}
 								onChange={this.handleInput}
 								placeholder={Lang.format('EmailAddress')}
 							/>
