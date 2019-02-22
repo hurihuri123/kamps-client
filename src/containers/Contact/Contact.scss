@@ -1,0 +1,80 @@
+$contact-padding : 0 10px 0 10px;
+$contact-info-text-color: dimgray;
+$containers-extra-padding-bottom: 25px;
+
+.contact-container {
+  height: 100%;
+  display: block;
+  overflow-y: auto;
+
+  .inputs-container {
+    display: block;
+    padding: $contact-padding;
+    background-color: $background-color;
+    padding-bottom: $containers-extra-padding-bottom;
+  }
+
+  .contact-info-container {
+    display: block;
+    padding: $contact-padding;
+    background-color: white;
+    text-align: right;
+    padding-bottom: $containers-extra-padding-bottom;
+  }
+
+  .contact-title {
+    line-height: 40px;
+    text-align: right;
+    font-weight: bold;
+    color: $titles-text-color;
+  }
+
+  .contact-body {
+    width: 100%;
+  }
+
+  .contact-info-row {
+    display: block;
+    line-height: 30px;
+    margin: 10px 0 10px 0;
+  }
+
+  .contact-info-title {
+    display: block;
+    font-weight: bold;
+  }
+
+  .contact-info-text {
+    color: $contact-info-text-color;
+    a {
+      color: $contact-info-text-color;
+      cursor: pointer;
+    }
+  }
+}
+
+@media only screen and(min-width:$max-mobile-width) {
+  .contact-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    .inputs-container {
+      display: inline-block;
+      width: 45%;
+      float: right;
+      padding: 30px;
+    }
+
+    .contact-info-container {
+      display: inline-block;
+      width: 40%;
+      padding: unset;
+    }
+
+    .padding-container {
+      width: 90%;
+      margin: auto;
+    }
+  }
+}
