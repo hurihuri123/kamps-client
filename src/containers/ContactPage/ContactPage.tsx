@@ -24,7 +24,7 @@ export default class ContactPage extends React.Component<Props, IState> {
 
     render() {
         return (
-            <div>
+            <div className={"contact-page"}>
                 <MenuNavigation/>
                 <Contact options={contactStore.getContactOptions()}/>
             </div>
