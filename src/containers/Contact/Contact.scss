@@ -32,25 +32,6 @@ $containers-extra-padding-bottom: 25px;
   .contact-body {
     width: 100%;
   }
-
-  .contact-info-row {
-    display: block;
-    line-height: 30px;
-    margin: 10px 0 10px 0;
-  }
-
-  .contact-info-title {
-    display: block;
-    font-weight: bold;
-  }
-
-  .contact-info-text {
-    color: $contact-info-text-color;
-    a {
-      color: $contact-info-text-color;
-      cursor: pointer;
-    }
-  }
 }
 
 @media only screen and(min-width:$max-mobile-width) {
