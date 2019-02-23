@@ -43,6 +43,11 @@ export default class ContactStore {
 		this.descreption = descreption;
 	}
 
+    @action
+    getContactOptions(): string[] {
+        return ["option1", "option2"];
+    }
+
 	@action
     sendContactRequest() {
 		return ContactService.sendContactRequest(this.fullName, this.phoneNumber, this.descreption, this.email);

@@ -7,11 +7,15 @@ import rootStores from '../../stores';
 import ContactStore from '../../stores/ContactStore';
 
 interface Props {
+    options: string[],
 }
 
 interface IState {
-    options: string[],
-
+    fullNameError: string;
+    phoneNumberError: string,
+    descreptionError: string,
+    emailError: string,
+    optionSelectedError: string,
 }
 
 const contactStore: ContactStore = rootStores[CONTACT_STORE];
@@ -21,13 +25,46 @@ export default class Contact extends React.Component<Props, IState> {
     constructor(props) {
         super(props);
         this.state = {
-            options: ["option1", "option2"], // TODO: Add options from props\
-        };
+            fullNameError: '',
+            phoneNumberError: '',
+            descreptionError: '',
+            emailError: '',
+            optionSelectedError: '',
+        }
     }
 
-    // TODO: Use validate before send to the server
     validate = () => {
-        return true;
+        // Variable Definition
+        const {fullName, phoneNumber, descreption, email, optionSelected} = contactStore;
+        let retval = true;
+
+        // Code Section
+        if(!fullName || !fullName.length){
+            this.setState({fullNameError : "fullNameError"});
+            retval = false;
+        }
+        if(!phoneNumber || !phoneNumber.length) {
+            this.setState({phoneNumberError : "phoneNumberError"});
+            retval = false;
+        }
+        if(!descreption || !descreption.length) {
+            this.setState({descreptionError : "descreptionError"});
+            retval = false;
+        }
+        if(!email || !email.length) {
+            this.setState({emailError : "emailError"});
+            retval = false;
+        }
+        if(!optionSelected || !optionSelected.length) {
+            this.setState({optionSelectedError : "optionSelectedError"});
+            retval = false;
+        }
+
+        return retval;
+    };
+
+    clearError = ()=>{
+        this.setState({fullNameError :''});
     };
 
     sendMessageClicked = () => {
@@ -44,8 +81,7 @@ export default class Contact extends React.Component<Props, IState> {
     };
 
     onFullNameChange = (value) => {
-        const fullName = value;
-        contactStore.setFullName(fullName);
+        contactStore.setFullName(value);
     };
 
     onEmailChange = (value) => {
@@ -81,14 +117,19 @@ export default class Contact extends React.Component<Props, IState> {
                         </div>
 
                         <div>
-                            {/* // TODO: Move to base */}
-                            <CustomSelector placeholder={Lang.format('ContactCustomWhichIssuse')} value={optionSelected} onSelected={this.optionSelected} isPrimitiveValue={true} addEmptyValue={true} options={this.state.options} />
-                            {/* // TODO: Use CustomInput */}
-                            <CustomInputText placeholder={Lang.format('ContactCustomerInputFullName')} onChange={this.onFullNameChange} value={fullName} />
-                            <CustomInputText value={email} placeholder={Lang.format('EmailAddress')} onChange={this.onEmailChange} />
-                            <CustomInputText value={phoneNumber} placeholder={Lang.format('ContactCustomerPhoneNumber')} onChange={this.onPhoneNumberChange} />
-                            {/* // TODO: Move to base project */}
-                            <CustomTextArea rows={4} value={descreption} onChange={this.onDescriptionChange} placeholder={Lang.format('HowCantIHelpYou')} />
+                            <CustomSelector value={optionSelected} error={this.state.optionSelectedError} placeholder={Lang.format('ContactCustomWhichIssuse')}
+                                            onSelected={this.optionSelected} isPrimitiveValue={true} addEmptyValue={true} options={this.props.options} />
+
+                            <CustomInputText value={fullName} error={this.state.fullNameError}
+                                             placeholder={Lang.format('ContactCustomerInputFullName')} onChange={this.onFullNameChange} />
+
+                            <CustomInputText value={email} error={this.state.emailError}
+                                             placeholder={Lang.format('EmailAddress')} onChange={this.onEmailChange} />
+
+                            <CustomInputText value={phoneNumber} error={this.state.phoneNumberError} placeholder={Lang.format('ContactCustomerPhoneNumber')} onChange={this.onPhoneNumberChange} />
+
+                            <CustomTextArea rows={4} value={descreption}  onChange={this.onDescriptionChange} placeholder={Lang.format('HowCantIHelpYou')} />
+
                             <CustomButton onClick={this.sendMessageClicked} text={Lang.format('SendMessage')} color={'gray'}/>
                         </div>
 
