@@ -24,13 +24,7 @@ export default class ContactInputs extends React.Component<Props, IState> {
 
     constructor(props) {
         super(props);
-        this.state = {
-            fullNameError: '',
-            phoneNumberError: '',
-            descreptionError: '',
-            emailError: '',
-            optionSelectedError: '',
-        }
+        this.initStates();
     }
 
     validate = () => {
@@ -64,8 +58,18 @@ export default class ContactInputs extends React.Component<Props, IState> {
     };
 
     clearError = ()=>{
-        this.setState({fullNameError :''});
+        this.initStates();
     };
+
+    initStates(): void {
+        this.state = {
+            fullNameError: '',
+            phoneNumberError: '',
+            descreptionError: '',
+            emailError: '',
+            optionSelectedError: '',
+        };
+    }
 
     sendMessageClicked = () => {
         // Code Section
