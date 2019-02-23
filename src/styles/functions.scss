@@ -33,3 +33,8 @@
 @mixin asset-background($name) {
     background-image: url('../assets/' + $name);
 }
+
+@mixin inputs-border {
+    border:unset;
+    border-radius: 5px;
+}

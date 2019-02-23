@@ -43,7 +43,6 @@ export default class ContactStore {
 		this.descreption = descreption;
 	}
 
-	// TODO: Move this to Nofshonit
 	@action
     sendContactRequest() {
 		return ContactService.sendContactRequest(this.fullName, this.phoneNumber, this.descreption, this.email);

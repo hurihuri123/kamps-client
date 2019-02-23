@@ -4,6 +4,7 @@ import {Switch} from 'react-router';
 import {BrowserRouter} from 'react-router-dom';
 import rootStores from '../../stores';
 import TomTestPage from '../TomTestPage/TomTestPage';
+import Contact from "../Contact/Contact";
 
 interface IProps {}
 
@@ -21,7 +22,8 @@ export default class App extends React.Component<IProps, IState> {
 			<Provider {...rootStores}>
 				<BrowserRouter>
 					<Switch>
-						<TomTestPage />
+						<Contact/>
+						{/*<TomTestPage />*/}
 					</Switch>
 				</BrowserRouter>
 			</Provider>

@@ -1,0 +1,34 @@
+
+.custom-selector-container {
+  min-height:  #{$inputs-min-height};
+  margin-bottom: #{$small-inputs-margin-bottom};
+
+  /* label container & label */
+  .custom-input-label-container {
+    font-weight: bold;
+    color: #{$input-form-color};
+    margin-bottom: #{$small-margin-bottom};
+    text-align: right;
+  }
+  /* custom input text & date */
+  .custom-select-input-container {
+
+    &.error {
+      border-color: #{$color-red-nofshonit};
+      border-width: 2px;
+    }
+    &.disabled {
+      background: #{$registration-input-disabled};
+      select[disabled] {
+        background-color: rgba(0, 0, 0, 0);
+      }
+    }
+    select {
+      width: 100%;
+      height: #{$inputs-height};
+      background-color: #{$inputs-background-color};
+      color: #{$input-placeholder-color};
+      @include inputs-border();
+    }
+  }
+}
