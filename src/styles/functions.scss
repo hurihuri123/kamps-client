@@ -3,33 +3,33 @@
  */
 
 @mixin ellipsis-text() {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 @mixin border-radius($radius) {
-    -webkit-border-radius: $radius;
-    -moz-border-radius: $radius;
-    border-radius: $radius;
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
 }
 
 @mixin block-middle() {
-    display: inline-block;
-    vertical-align: middle;
+	display: inline-block;
+	vertical-align: middle;
 }
 
 @mixin transparent-background($color, $amount) {
-    background-color: rgba($color, $amount);
+	background-color: rgba($color, $amount);
 }
 
 @mixin video-child() {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: $z-index-1;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: $z-index-1;
 }
 
 @mixin asset-background($name) {
-    background-image: url('../assets/' + $name);
+	background-image: url('../assets/'+$name);
 }
