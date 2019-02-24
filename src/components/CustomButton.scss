@@ -2,60 +2,54 @@
 	width: 100%;
 	display: flex;
 	justify-content: center;
+
 	&.alignStart {
 		justify-content: flex-start;
 	}
-	&.smallHeight{
+
+	&.smallHeight {
 		padding-top: 10px;
 	}
+
 	.button {
 		border: 0px solid rgb(121, 121, 121);
 		border-radius: 2px;
 		height: 40px;
 		width: 100%;
 		cursor: pointer;
-		&.black {
-			background: black;
-		}
-		&.orange {
-			background: #{$byprimary-color};
-		}
-		&.navy {
-			background: #{$bysecondary-color};
-		}
-		&.green{
-			background:#0AC200;
-		}
-		&.gray{
-			background: gray;
-		}
 		// font-weight: bold;
 		color: white;
 		margin-top: 10px;
 		font-size: 20px;
+
 		&.white {
 			border-color: white;
 			color: white;
 		}
+
 		&.large {
 			font-size: 20px;
 			height: 44px;
 			padding: 0 20px;
 		}
+
 		&.small {
 			font-size: 12px;
 			height: 30px;
 			min-width: 60px;
 			margin-left: 30px;
 		}
+
 		&.disabled {
-			background: #{$registration-input-disabled};
+			background: #aaa;
 		}
+
 		&.large-text {
 			font-size: 16px;
 			margin-top: 1%;
 		}
-		&.smallHeight{
+
+		&.smallHeight {
 			height: 33px;
 		}
 	}

@@ -1,0 +1,52 @@
+$custom-input-background-color: #aaa;
+$input-label-mobile-font-size: $font-size-base;
+
+.custom-input-text-container {
+	min-height: 50px;
+	margin-bottom: #{$small-margin-bottom};
+
+	&.short {
+		margin-bottom: 0;
+		min-height: 60px;
+	}
+
+	/* label container & label */
+	.custom-input-label-container {
+		font-weight: bold;
+		text-align: right;
+		color: #00173a;
+		margin-bottom: #{$small-margin-bottom};
+	}
+
+	/* custom input text & date */
+	.custom-input-text-input-container {
+		border: 1px solid #9f9f9f;
+		background: #{$custom-input-background-color};
+		line-height: 27.5px;
+		padding: 0px 2px;
+		border-radius: 4px;
+		height: 35px;
+
+		&.error {
+			border-color: #{$error-color};
+			border-width: 2px;
+		}
+
+		&.disabled {
+			background: #aaa;
+
+			input[disabled] {
+				background-color: rgba(0, 0, 0, 0);
+			}
+		}
+
+		input {
+			width: 100%;
+			border: 0;
+			background: #{$custom-input-background-color};
+			font-size: #{$input-label-mobile-font-size};
+			font-weight: bold;
+			color: #7f7f7f;
+		}
+	}
+}
