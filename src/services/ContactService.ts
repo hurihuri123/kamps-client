@@ -12,14 +12,15 @@ class ContactService extends BaseHTTPService{
     sendContactRequest(fullName:string ,phoneNumber: string, description:string ,email:string){
         // Variable Definition
         const body = {
-            FullName:fullName,
-            PhoneNumber:phoneNumber,
-            Description:description,
-            Email:email
+            subject: "hey",
+            fullName:fullName,
+            phoneNumber:phoneNumber,
+            description:description,
+            email:email
         };
 
         // Code Section
-       return this.httpPost('/api/contact/test',body)
+       return this.httpPost('/api/contact/openService',body)
     
     }
 }
