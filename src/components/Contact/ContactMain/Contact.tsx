@@ -1,9 +1,9 @@
 
 import {CustomButton, CustomInputText, CustomTextArea, CustomSelector} from 'nofshonit-base-web-client';
 import * as React from 'react';
-import Lang from "../../config/Language";
-import ContactInputs from "../../components/Contact/ContactInputs/ContactInputs";
-import ContactInfo from "../../components/Contact/ContactInfo/ContactInfo";
+import Lang from "../../../config/Language";
+import ContactInputs from "../ContactInputs/ContactInputs";
+import ContactInfo from "../ContactInfo/ContactInfo";
 
 interface Props {
     options: string[],

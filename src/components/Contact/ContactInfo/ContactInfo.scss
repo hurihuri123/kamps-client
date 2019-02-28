@@ -1,18 +1,20 @@
-.contact-info-row {
-  display: block;
-  line-height: 30px;
-  margin: 10px 0 10px 0;
-}
+.main-contact-info {
+  .contact-info-row {
+    display: block;
+    line-height: 30px;
+    margin: 10px 0 10px 0;
+  }
 
-.contact-info-title {
-  display: block;
-  font-weight: bold;
-}
+  .contact-info-title {
+    display: block;
+    font-weight: bold;
+  }
 
-.contact-info-text {
-  color: $contact-info-text-color;
-  a {
+  .contact-info-text {
     color: $contact-info-text-color;
-    cursor: pointer;
+    a {
+      color: $contact-info-text-color;
+      cursor: pointer;
+    }
   }
 }

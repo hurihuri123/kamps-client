@@ -2,5 +2,5 @@
  ** DEFINE ALL `.SCSS` CONTAINER COMPONENT IMPORTS HERE
  */
 
-@import "./Contact/Contact";
-@import "./ContactPage/ContactPage";
+@import "../components/Contact/ContactMain/Contact";
+@import "ContactContainer/ContactContainer";

@@ -17,7 +17,7 @@ export default class ContactInfo extends React.Component<Props, IState> {
 
     render() {
         return (
-                    <div>
+                    <div className={"main-contact-info"}>
 
                         <div className={"contact-info-row"}>
                             <span className={"contact-info-title"}>{Lang.format("ContactQuestions")}</span>
