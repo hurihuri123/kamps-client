@@ -3,13 +3,13 @@
 	/* label container & label */
 	.custom-input-label-container {
 		font-weight: bold;
-		color: #{$by-label-color};
+		color: #{$label-color};
 		margin-bottom: #{$small-margin-bottom};
 		text-align: right;
 	}
 	/* custom input text & date */
 	.custom-input-text-input-container {
-		border: 1px solid #{$by-input-border-color};
+		border: 1px solid #{$input-border-color};
 		background: #{$input-background-color};
 		textarea {
 			width: 100%;
@@ -18,7 +18,7 @@
 			background: #{$input-background-color};
 			font-size: #{$registration-input-label-mobile-font-size};
 			font-weight: bold;
-			color: #{$by-input-text-color};
+			color: #{$input-text-color};
 			padding: unset;
 		}
 		@media only screen and (min-width:#{$mobile-device-width}) {
