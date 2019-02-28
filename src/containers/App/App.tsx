@@ -4,7 +4,7 @@ import {Switch} from 'react-router';
 import {BrowserRouter} from 'react-router-dom';
 import rootStores from '../../stores';
 import TomTestPage from '../TomTestPage/TomTestPage';
-import Contact from "../../components/Contact/ContactMain/Contact";
+import Contact from "../../components/Contact/ContactMain/ContactMain";
 import ContactPage from "../ContactContainer/ContactContainer";
 
 interface IProps {}

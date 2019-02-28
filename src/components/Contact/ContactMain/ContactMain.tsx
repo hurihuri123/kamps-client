@@ -12,7 +12,7 @@ interface Props {
 interface IState {
 }
 
-export default class Contact extends React.Component<Props, IState> {
+export default class ContactMain extends React.Component<Props, IState> {
 
     constructor(props) {
         super(props);

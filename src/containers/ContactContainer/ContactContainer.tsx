@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import Contact from "../../components/Contact/ContactMain/Contact";
+import Contact from "../../components/Contact/ContactMain/ContactMain";
 import MenuNavigation from "../MenuNavigation/MenuNavigation";
 import {CONTACT_STORE} from "../../consts/stores";
 import {observer} from "mobx-react";
