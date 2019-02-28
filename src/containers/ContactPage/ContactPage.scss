@@ -1,9 +1,11 @@
+$max-mobile-width: 700px;
+
 .contact-page {
-  height: 100%;
+	height: 100%;
 }
 
 @media only screen and(min-width:$max-mobile-width) {
-  .contact-page {
-    height: unset;
-  }
+	.contact-page {
+		height: unset;
+	}
 }

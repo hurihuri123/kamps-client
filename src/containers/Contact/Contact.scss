@@ -1,61 +1,64 @@
-$contact-padding : 0 10px 0 10px;
+$contact-padding: 0 10px 0 10px;
 $contact-info-text-color: dimgray;
 $containers-extra-padding-bottom: 25px;
+$background-color: #aaa;
+$titles-text-color: #ddd;
+$max-mobile-width: 700px;
 
 .contact-container {
-  height: 100%;
-  display: block;
-  overflow-y: auto;
+	height: 100%;
+	display: block;
+	overflow-y: auto;
 
-  .inputs-container {
-    display: block;
-    padding: $contact-padding;
-    background-color: $background-color;
-    padding-bottom: $containers-extra-padding-bottom;
-  }
+	.inputs-container {
+		display: block;
+		padding: $contact-padding;
+		background-color: $background-color;
+		padding-bottom: $containers-extra-padding-bottom;
+	}
 
-  .contact-info-container {
-    display: block;
-    padding: $contact-padding;
-    background-color: white;
-    text-align: right;
-    padding-bottom: $containers-extra-padding-bottom;
-  }
+	.contact-info-container {
+		display: block;
+		padding: $contact-padding;
+		background-color: white;
+		text-align: right;
+		padding-bottom: $containers-extra-padding-bottom;
+	}
 
-  .contact-title {
-    line-height: 40px;
-    text-align: right;
-    font-weight: bold;
-    color: $titles-text-color;
-  }
+	.contact-title {
+		line-height: 40px;
+		text-align: right;
+		font-weight: bold;
+		color: $titles-text-color;
+	}
 
-  .contact-body {
-    width: 100%;
-  }
+	.contact-body {
+		width: 100%;
+	}
 }
 
 @media only screen and(min-width:$max-mobile-width) {
-  .contact-container {
-    display: flex;
-    align-items: center;
-    width: 100%;
+	.contact-container {
+		display: flex;
+		align-items: center;
+		width: 100%;
 
-    .inputs-container {
-      display: inline-block;
-      width: 45%;
-      float: right;
-      padding: 30px;
-    }
+		.inputs-container {
+			display: inline-block;
+			width: 45%;
+			float: right;
+			padding: 30px;
+		}
 
-    .contact-info-container {
-      display: inline-block;
-      width: 40%;
-      padding: unset;
-    }
+		.contact-info-container {
+			display: inline-block;
+			width: 40%;
+			padding: unset;
+		}
 
-    .padding-container {
-      width: 90%;
-      margin: auto;
-    }
-  }
+		.padding-container {
+			width: 90%;
+			margin: auto;
+		}
+	}
 }
