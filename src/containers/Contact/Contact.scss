@@ -56,6 +56,9 @@ $containers-extra-padding-bottom: 25px;
 		.padding-container {
 			width: 90%;
 			margin: auto;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
 		}
 	}
 }
