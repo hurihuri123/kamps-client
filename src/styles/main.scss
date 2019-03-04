@@ -17,3 +17,8 @@ html,
 body {
 	font-size: $font-size-base;
 }
+
+input,
+textarea {
+	outline: 0px;
+}
